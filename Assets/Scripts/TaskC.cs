@@ -11,18 +11,21 @@ public class TaskC : MonoBehaviour
 
     [SerializeField] private GameObject hangingActorPrefab;
 
-    private GameObject hangingActorInGame;
+    [SerializeField] private GameObject hangingActorInGame;
 
-    private Rigidbody anchorObjectRigidbody;
+    public Rigidbody anchorObjectRigidbody;
 
     [SerializeField] private float maxSpeed;
 
     [SerializeField] private TextMeshProUGUI hintText;
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       // DoTaskC(hangingActorPrefab,cube);
     }
 
     // Update is called once per frame
@@ -47,15 +50,17 @@ public class TaskC : MonoBehaviour
         }
     }
 
-    public void DoTaskC(GameObject OldWalkingActor, GameObject AnchorObject)
+    public void DoTaskC(GameObject OldWalkingActor)
     {
         OldWalkingActor.SetActive(false);
         hangingActorInGame = Instantiate(hangingActorPrefab, OldWalkingActor.transform.position, OldWalkingActor.transform.rotation);
-        hangingActorInGame.transform.SetParent(AnchorObject.transform);
+
+        hangingActorInGame.transform.SetParent(GameObject.FindGameObjectWithTag("Anchor").transform);
+
         hintText.text = "Trying to Get RigidBody";
         try
         {
-            anchorObjectRigidbody = hangingActorInGame.GetComponent<Rigidbody>();
+            anchorObjectRigidbody = GameObject.FindGameObjectWithTag("Anchor").GetComponent<Rigidbody>();
         }
         catch (Exception e)
         {

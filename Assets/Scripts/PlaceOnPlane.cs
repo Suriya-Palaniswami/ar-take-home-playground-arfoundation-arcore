@@ -145,7 +145,7 @@ public class PlaceOnPlane : MonoBehaviour
 
     private void GetTaskCScriptAndCall()
     {
-        GameObject.FindGameObjectWithTag("TaskC").GetComponent<TaskC>().DoTaskC(ActorSpawnedObject,AnchorSpawnedObject);
+        GameObject.FindGameObjectWithTag("TaskC").GetComponent<TaskC>().DoTaskC(ActorSpawnedObject);
     }
     public void DiableVisual()
     {
