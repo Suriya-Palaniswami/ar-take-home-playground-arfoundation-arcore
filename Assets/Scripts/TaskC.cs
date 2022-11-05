@@ -30,6 +30,8 @@ public class TaskC : MonoBehaviour
             if(anchorObjectRigidbody.velocity.magnitude > maxSpeed)
             {
                 hangingActorInGame.transform.parent = null;
+                hangingActorInGame.transform.DOMoveY(-0.561f, 1.5f);
+                hangingActorInGame.transform.DOLocalRotate(new Vector3(-21.51f, 0f, 0f), 1.5f).OnComplete(() => SetRigidBodyNull());
             }
         }
     }
@@ -41,6 +43,12 @@ public class TaskC : MonoBehaviour
         hangingActorInGame.transform.SetParent(AnchorObject.transform);
 
         anchorObjectRigidbody = AnchorObject.GetComponent<Rigidbody>();
+        
 
+    }
+
+    private void SetRigidBodyNull()
+    {
+        anchorObjectRigidbody = null;
     }
 }

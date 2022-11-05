@@ -1543,7 +1543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hangingActorPrefab: {fileID: 1720216601926758836, guid: 3331d125656ed96468d41e7ffd849bb8, type: 3}
-  maxSpeed: 100
+  maxSpeed: 20
 --- !u!4 &1834234547
 Transform:
   m_ObjectHideFlags: 0
