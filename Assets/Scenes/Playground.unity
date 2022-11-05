@@ -846,6 +846,7 @@ MonoBehaviour:
   maxPrefabSpwanCount: 2
   GoTo: 0
   GoToButton: {fileID: 1633525347}
+  hintText: {fileID: 2119933368}
 --- !u!114 &566473001
 MonoBehaviour:
   m_ObjectHideFlags: 0

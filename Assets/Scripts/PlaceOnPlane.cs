@@ -4,6 +4,8 @@ using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using DG.Tweening;
+using System;
+using TMPro;
 /// <summary>
 /// Listens for touch events and performs an AR raycast from the screen touch point.
 /// AR raycasts will only hit detected trackables like feature points and planes.
@@ -33,6 +35,8 @@ public class PlaceOnPlane : MonoBehaviour
     [SerializeField] public bool GoTo = false;
 
     [SerializeField] public GameObject GoToButton;
+
+    [SerializeField] private TextMeshProUGUI hintText;
     /// <summary>
     /// The prefab to instantiate on touch.
     /// </summary>
@@ -45,8 +49,10 @@ public class PlaceOnPlane : MonoBehaviour
     /// <summary>
     /// The object instantiated as a result of a successful raycast intersection with a plane.
     /// </summary>
-    public GameObject spawnedObject { get; private set; }
+    public GameObject AnchorSpawnedObject { get; private set; }
+    public GameObject ActorSpawnedObject { get; private set; }
 
+    private int spawnCount = 0;
     
 
     void Awake()
@@ -98,21 +104,32 @@ public class PlaceOnPlane : MonoBehaviour
     }
     private void SpawnPrefab(Pose hitPose)
     {
-        spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-        placedList.Add(spawnedObject);
+        if (spawnCount == 0)
+        {
+            ActorSpawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+            placedList.Add(ActorSpawnedObject);
+        }
+        else
+        {
+            AnchorSpawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+            placedList.Add(AnchorSpawnedObject);
+        }
+
+        
         placedPrefabCount++;
     }
 
     public void LerpTo()
     {
-        foreach (GameObject obj in placedList)
+        try
         {
-            if (obj.GetComponent<LerpToAnchor>() != null)
-            {
-                obj.GetComponent<LerpToAnchor>().to = placedList[1];
-                obj.GetComponent<LerpToAnchor>().go = true;
-            }
+            ActorSpawnedObject.transform.DOMove(AnchorSpawnedObject.transform.position, 1.5f);
         }
+        catch (Exception e)
+        {
+            hintText.text = "Exception"+ActorSpawnedObject.name+AnchorSpawnedObject.name;
+        }
+  
     }
     public void DiableVisual()
     {
