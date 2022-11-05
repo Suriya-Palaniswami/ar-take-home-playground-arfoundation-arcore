@@ -124,12 +124,11 @@ public class PlaceOnPlane : MonoBehaviour
         hintText.text = "Trying?"; 
         try
         {
-            hintText.text = "Trying?..";
+            hintText.text = "Walking";
             ActorSpawnedObject = GameObject.FindGameObjectWithTag("Character");
             AnchorSpawnedObject = GameObject.FindGameObjectWithTag("Anchor");
             ActorSpawnedObject.transform.DOMove(AnchorSpawnedObject.transform.position, 3.5f);
             SetTransform();
-            hintText.text = "Trying?...";
 
         }
         catch (Exception e)
