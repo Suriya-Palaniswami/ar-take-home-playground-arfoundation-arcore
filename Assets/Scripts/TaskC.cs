@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 public class TaskC : MonoBehaviour
 {
     //Get And Change Attached Model
@@ -14,7 +15,9 @@ public class TaskC : MonoBehaviour
 
     private Rigidbody anchorObjectRigidbody;
 
-    [SerializeField] private float maxSpeed = 100;
+    [SerializeField] private float maxSpeed;
+
+    [SerializeField] private TextMeshProUGUI hintText;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,7 @@ public class TaskC : MonoBehaviour
                 hangingActorInGame.transform.parent = null;
                 hangingActorInGame.transform.DOMoveY(-0.561f, 1.5f);
                 hangingActorInGame.transform.DOLocalRotate(new Vector3(-21.51f, 0f, 0f), 1.5f).OnComplete(() => SetRigidBodyNull());
+                hintText.text = anchorObjectRigidbody.velocity.magnitude.ToString();
             }
         }
     }
