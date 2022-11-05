@@ -29,6 +29,10 @@ public class PlaceOnPlane : MonoBehaviour
     private int maxPrefabSpwanCount = 0;
     private int placedPrefabCount;
 
+
+    [SerializeField] public bool GoTo = false;
+
+    [SerializeField] public GameObject GoToButton;
     /// <summary>
     /// The prefab to instantiate on touch.
     /// </summary>
@@ -81,6 +85,10 @@ public class PlaceOnPlane : MonoBehaviour
             }
             placementUpdate.Invoke();
         }
+
+        if (GoTo) transform.position = Vector3.MoveTowards(placedList[0].transform.position, placedList[1].transform.position, 3.5f * Time.deltaTime);
+
+        if (placedList.Count >= 2) GoToButton.SetActive(true);
     }
 
     public void SetPrefab(GameObject prefabType)
@@ -93,10 +101,17 @@ public class PlaceOnPlane : MonoBehaviour
         placedList.Add(spawnedObject);
         placedPrefabCount++;
     }
+
+    public void LerpTo()
+    {
+        GoTo = GoTo ? false : true;
+    }
     public void DiableVisual()
     {
         visualObject.SetActive(false);
     }
+
+
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
