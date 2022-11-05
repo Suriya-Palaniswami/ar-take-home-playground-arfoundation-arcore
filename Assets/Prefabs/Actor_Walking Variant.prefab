@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor_Walking Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 199dfa2922ca843f183bf15f0b8441ec, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f6dee91161249041b1091a02895aa01, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 199dfa2922ca843f183bf15f0b8441ec, type: 3}
 --- !u!1 &1701153165135825947 stripped

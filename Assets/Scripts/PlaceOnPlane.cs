@@ -23,6 +23,12 @@ public class PlaceOnPlane : MonoBehaviour
     [SerializeField]
     GameObject visualObject;
 
+    private List<GameObject> placedList = new List<GameObject>();
+
+    [SerializeField]
+    private int maxPrefabSpwanCount = 0;
+    private int placedPrefabCount;
+
     /// <summary>
     /// The prefab to instantiate on touch.
     /// </summary>
@@ -49,7 +55,7 @@ public class PlaceOnPlane : MonoBehaviour
 
     bool TryGetTouchPosition(out Vector2 touchPosition)
     {
-        if (Input.touchCount > 0)
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
             touchPosition = Input.GetTouch(0).position;
             return true;
@@ -69,20 +75,24 @@ public class PlaceOnPlane : MonoBehaviour
             // Raycast hits are sorted by distance, so the first one
             // will be the closest hit.
             var hitPose = s_Hits[0].pose;
-
-            if (spawnedObject == null)
+            if (placedPrefabCount < maxPrefabSpwanCount)
             {
-                spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-
-            }
-            else
-            {
-                spawnedObject.transform.position = hitPose.position;
+                SpawnPrefab(hitPose);
             }
             placementUpdate.Invoke();
         }
     }
 
+    public void SetPrefab(GameObject prefabType)
+    {
+        m_PlacedPrefab = prefabType;
+    }
+    private void SpawnPrefab(Pose hitPose)
+    {
+        spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+        placedList.Add(spawnedObject);
+        placedPrefabCount++;
+    }
     public void DiableVisual()
     {
         visualObject.SetActive(false);
