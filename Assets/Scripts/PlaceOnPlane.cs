@@ -125,7 +125,7 @@ public class PlaceOnPlane : MonoBehaviour
         try
         {
             hintText.text = "Trying?..";
-            ActorSpawnedObject.transform.DOMove(AnchorSpawnedObject.transform.position, 1.5f);
+            GameObject.FindGameObjectWithTag("Character").transform.DOMove(GameObject.FindGameObjectWithTag("Anchor").transform.position,1.5f);
             hintText.text = "Trying?...";
 
         }

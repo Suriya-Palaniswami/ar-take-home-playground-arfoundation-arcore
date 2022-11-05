@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor_Walking Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 199dfa2922ca843f183bf15f0b8441ec, type: 3}
+      propertyPath: m_TagString
+      value: Character
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 199dfa2922ca843f183bf15f0b8441ec, type: 3}
       propertyPath: m_Controller
       value: 
