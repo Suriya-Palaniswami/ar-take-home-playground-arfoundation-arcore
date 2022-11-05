@@ -49,8 +49,8 @@ public class PlaceOnPlane : MonoBehaviour
     /// <summary>
     /// The object instantiated as a result of a successful raycast intersection with a plane.
     /// </summary>
-    public GameObject AnchorSpawnedObject { get; private set; }
-    public GameObject ActorSpawnedObject { get; private set; }
+    public GameObject AnchorSpawnedObject { get;  set; }
+    public GameObject ActorSpawnedObject { get; set; }
 
     private int spawnCount = 0;
     
