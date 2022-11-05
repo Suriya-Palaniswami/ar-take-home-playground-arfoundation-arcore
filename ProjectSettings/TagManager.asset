@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Character
   - Anchor
+  - TaskC
   layers:
   - Default
   - TransparentFX
