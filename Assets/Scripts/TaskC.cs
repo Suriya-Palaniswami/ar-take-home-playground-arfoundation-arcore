@@ -40,6 +40,7 @@ public class TaskC : MonoBehaviour
         if (anchorObjectRigidbody != null) {
 
             hintText.text = "Not Null";
+            hintText.text = anchorObjectRigidbody.velocity.magnitude.ToString();
             if(anchorObjectRigidbody.velocity.magnitude > maxSpeed)
             {
                 hangingActorInGame.transform.parent = null;
