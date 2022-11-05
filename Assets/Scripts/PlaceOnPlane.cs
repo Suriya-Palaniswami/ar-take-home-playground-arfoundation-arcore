@@ -135,12 +135,17 @@ public class PlaceOnPlane : MonoBehaviour
         {
             hintText.text = "Exception"+ActorSpawnedObject.name+AnchorSpawnedObject.name;
         }
-  
     }
 
     private void SetTransform()
     {
         ActorSpawnedObject.transform.SetParent(AnchorSpawnedObject.transform);
+        GetTaskCScriptAndCall();
+    }
+
+    private void GetTaskCScriptAndCall()
+    {
+        GameObject.FindGameObjectWithTag("TaskC").GetComponent<TaskC>().DoTaskC(ActorSpawnedObject,AnchorSpawnedObject);
     }
     public void DiableVisual()
     {
