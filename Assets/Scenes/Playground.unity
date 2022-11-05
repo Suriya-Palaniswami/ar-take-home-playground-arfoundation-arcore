@@ -844,7 +844,7 @@ MonoBehaviour:
   visualObject: {fileID: 1982720607}
   maxPrefabSpwanCount: 2
   GoTo: 0
-  GoToButton: {fileID: 0}
+  GoToButton: {fileID: 1633525347}
 --- !u!114 &566473001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1237,7 +1237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1633525348
 RectTransform:
   m_ObjectHideFlags: 0

@@ -104,14 +104,12 @@ public class PlaceOnPlane : MonoBehaviour
 
     public void LerpTo()
     {
-        GoTo = GoTo ? false : true;
+        if (GoTo == false) GoTo = true;
     }
     public void DiableVisual()
     {
         visualObject.SetActive(false);
     }
-
-
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
