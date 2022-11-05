@@ -45,8 +45,7 @@ public class TaskC : MonoBehaviour
         OldWalkingActor.SetActive(false);
         hangingActorInGame = Instantiate(hangingActorPrefab, OldWalkingActor.transform.position, OldWalkingActor.transform.rotation);
         hangingActorInGame.transform.SetParent(AnchorObject.transform);
-
-        anchorObjectRigidbody = AnchorObject.GetComponent<Rigidbody>();
+        anchorObjectRigidbody = hangingActorInGame.GetComponent<Rigidbody>();
         
 
     }
