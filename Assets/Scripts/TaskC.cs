@@ -18,6 +18,7 @@ public class TaskC : MonoBehaviour
     [SerializeField] private float maxSpeed;
 
     [SerializeField] private TextMeshProUGUI hintText;
+    [SerializeField] private TextMeshProUGUI hintTextMax;
 
 
 
@@ -43,7 +44,7 @@ public class TaskC : MonoBehaviour
             hintText.text = anchorObjectRigidbody.velocity.magnitude.ToString();
             if(anchorObjectRigidbody.velocity.magnitude > maxSpeed)
             {
-                hintText.text = "Max Speedd";
+                hintTextMax.text = "Max Speedd";
                 hangingActorInGame.transform.parent = null;
                 hangingActorInGame.transform.DOMoveY(-0.561f, 1.5f);
                 hangingActorInGame.transform.DOLocalRotate(new Vector3(-21.51f, 0f, 0f), 1.5f).OnComplete(() => SetRigidBodyNull());
