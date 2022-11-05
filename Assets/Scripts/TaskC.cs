@@ -28,8 +28,10 @@ public class TaskC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (anchorObjectRigidbody != null) {
-            
+
+            hintText.text = "Not Null";
             if(anchorObjectRigidbody.velocity.magnitude > maxSpeed)
             {
                 hangingActorInGame.transform.parent = null;
@@ -46,7 +48,7 @@ public class TaskC : MonoBehaviour
         hangingActorInGame = Instantiate(hangingActorPrefab, OldWalkingActor.transform.position, OldWalkingActor.transform.rotation);
         hangingActorInGame.transform.SetParent(AnchorObject.transform);
         anchorObjectRigidbody = hangingActorInGame.GetComponent<Rigidbody>();
-        
+        hintText.text = anchorObjectRigidbody.ToString();
 
     }
 
