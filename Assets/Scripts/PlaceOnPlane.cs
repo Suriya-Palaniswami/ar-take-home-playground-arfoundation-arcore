@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-
+using DG.Tweening;
 /// <summary>
 /// Listens for touch events and performs an AR raycast from the screen touch point.
 /// AR raycasts will only hit detected trackables like feature points and planes.
@@ -23,7 +23,7 @@ public class PlaceOnPlane : MonoBehaviour
     [SerializeField]
     GameObject visualObject;
 
-    private List<GameObject> placedList = new List<GameObject>();
+    [SerializeField]private List<GameObject> placedList = new List<GameObject>();
 
     [SerializeField]
     private int maxPrefabSpwanCount = 0;
@@ -46,6 +46,8 @@ public class PlaceOnPlane : MonoBehaviour
     /// The object instantiated as a result of a successful raycast intersection with a plane.
     /// </summary>
     public GameObject spawnedObject { get; private set; }
+
+    
 
     void Awake()
     {
@@ -86,7 +88,6 @@ public class PlaceOnPlane : MonoBehaviour
             placementUpdate.Invoke();
         }
 
-        if (GoTo) transform.position = Vector3.MoveTowards(placedList[0].transform.position, placedList[1].transform.position, 3.5f * Time.deltaTime);
 
         if (placedList.Count >= 2) GoToButton.SetActive(true);
     }
@@ -104,7 +105,8 @@ public class PlaceOnPlane : MonoBehaviour
 
     public void LerpTo()
     {
-        if (GoTo == false) GoTo = true;
+        placedList[0].transform.DOMove(placedList[1].transform.position,1.5f);
+        
     }
     public void DiableVisual()
     {
