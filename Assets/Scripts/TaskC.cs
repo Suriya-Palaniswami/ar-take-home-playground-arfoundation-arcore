@@ -28,7 +28,12 @@ public class TaskC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (anchorObjectRigidbody == null)
+        {
+            hintText.text = "Null";
+        }
+
         if (anchorObjectRigidbody != null) {
 
             hintText.text = "Not Null";
@@ -56,8 +61,6 @@ public class TaskC : MonoBehaviour
         {
             hintText.text = e.ToString();
         }
-        
-
     }
 
     private void SetRigidBodyNull()
