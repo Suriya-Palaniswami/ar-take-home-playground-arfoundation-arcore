@@ -121,6 +121,7 @@ public class PlaceOnPlane : MonoBehaviour
 
     public void LerpTo()
     {
+        hintText.text = "Trying?"; 
         try
         {
             ActorSpawnedObject.transform.DOMove(AnchorSpawnedObject.transform.position, 1.5f);
