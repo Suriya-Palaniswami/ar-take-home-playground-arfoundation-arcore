@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -47,8 +47,16 @@ public class TaskC : MonoBehaviour
         OldWalkingActor.SetActive(false);
         hangingActorInGame = Instantiate(hangingActorPrefab, OldWalkingActor.transform.position, OldWalkingActor.transform.rotation);
         hangingActorInGame.transform.SetParent(AnchorObject.transform);
-        anchorObjectRigidbody = hangingActorInGame.GetComponent<Rigidbody>();
-        hintText.text = anchorObjectRigidbody.ToString();
+        hintText.text = "Trying to Get RigidBody";
+        try
+        {
+            anchorObjectRigidbody = hangingActorInGame.GetComponent<Rigidbody>();
+        }
+        catch (Exception e)
+        {
+            hintText.text = e.ToString();
+        }
+        
 
     }
 
