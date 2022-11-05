@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class LerpToAnchor : MonoBehaviour
 {
 
-    public GameObject from;
+    
     public GameObject to;
-    public bool check = false;
-
+    public bool go = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,10 @@ public class LerpToAnchor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(check) transform.position = Vector3.MoveTowards(transform.position, to.transform.position, 3.5f*Time.deltaTime);
+        
     }
-    
+    public void LerpTo()
+    {
+        if(go)this.transform.DOMove(to.transform.position, 1.5f);
+    }
 }

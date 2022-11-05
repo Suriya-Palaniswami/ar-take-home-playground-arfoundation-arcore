@@ -105,8 +105,14 @@ public class PlaceOnPlane : MonoBehaviour
 
     public void LerpTo()
     {
-        placedList[0].transform.DOMove(placedList[1].transform.position,1.5f);
-        
+        foreach (GameObject obj in placedList)
+        {
+            if (obj.GetComponent<LerpToAnchor>() != null)
+            {
+                obj.GetComponent<LerpToAnchor>().to = placedList[1];
+                obj.GetComponent<LerpToAnchor>().go = true;
+            }
+        }
     }
     public void DiableVisual()
     {

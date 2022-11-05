@@ -842,9 +842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlacedPrefab: {fileID: 1701153165135825947, guid: 33c9f0c4635c78b4bb7f2796b2a676a1, type: 3}
   visualObject: {fileID: 1982720607}
-  placedList:
-  - {fileID: 0}
-  - {fileID: 0}
+  placedList: []
   maxPrefabSpwanCount: 2
   GoTo: 0
   GoToButton: {fileID: 1633525347}
