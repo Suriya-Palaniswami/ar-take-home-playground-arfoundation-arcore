@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1534202870}
   - component: {fileID: 1534202869}
   m_Layer: 5
-  m_Name: Hint (1)
+  m_Name: VelocityHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1586,7 +1586,7 @@ RectTransform:
   m_Children:
   - {fileID: 501583856}
   m_Father: {fileID: 2043251293}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2051,8 +2051,8 @@ RectTransform:
   m_Children:
   - {fileID: 1007131394}
   - {fileID: 1783564499}
-  - {fileID: 2119933367}
   - {fileID: 1633525348}
+  - {fileID: 2119933367}
   - {fileID: 1534202868}
   - {fileID: 309147519}
   m_Father: {fileID: 0}
@@ -2094,7 +2094,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2043251293}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
