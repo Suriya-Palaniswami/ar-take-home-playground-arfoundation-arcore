@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 309147521}
   - component: {fileID: 309147520}
   m_Layer: 5
-  m_Name: Hint (2)
+  m_Name: MaxSpeedHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
